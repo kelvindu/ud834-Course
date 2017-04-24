@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
      * Method ini dipanggil saat tombol order di click.
      * */
     public void submitOrder(View view){
-        tampilkanHarga(jumlah * 5);
+        int harga = jumlah * 5;
+        String pesan = "Total seluruhnya $" +harga+"\nTerima kasih!";
+        //tampilkanHarga(jumlah * 5);
+        tampilkanPesan(pesan);
     }
 
     /**
@@ -46,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
         TextView jumlahTextView = (TextView) findViewById(
                 R.id.jumlah_text_view);
         jumlahTextView.setText("" + angka);
+    }
+
+    /**
+     * Method ini menampilkan pesan ke layar android
+     * */
+    private void tampilkanPesan(String pesan) {
+        TextView hargaTextView = (TextView) findViewById(R.id.harga_text_view);
+        hargaTextView.setText(pesan);
     }
 
     /**
