@@ -1,13 +1,13 @@
 package com.kelvindu.learning.ud834_course;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,13 +54,17 @@ public class MainActivity extends AppCompatActivity {
         CheckBox cokelatCheckBox = (CheckBox) findViewById(R.id.cokelat_checkbox);
         boolean pesanCokelat = cokelatCheckBox.isChecked();
 
-        
-
         int harga = hitungHarga(pesanWhippedCream,pesanCokelat);
 
         String pesan = buatOrderSummary(nama,harga);
 
-        tampilkanPesan(pesan);
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java pesanan "+nama);
+        intent.putExtra(Intent.EXTRA_TEXT, pesan);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     /**
@@ -77,12 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 "\nTerima kasih!";
     }
 
-
     /**
      * Method ini dipanggil untuk menghitung harga kopi.
      *
-     * @param tambahWhippedCream adalah jika pelanggan ingin menambah topping whipped cream
-     * @param tambahCokelat adalah jika pelanggan ingin menambah topping cokelat
+     * @param tambahWhippedCream adalah jika pelanggan ingin menambah topping whipped cream.
+     * @param tambahCokelat adalah jika pelanggan ingin menambah topping cokelat.
      * @return harga kopi setelah dihitung.
      * */
     private int hitungHarga(boolean tambahWhippedCream, boolean tambahCokelat){
@@ -106,21 +109,5 @@ public class MainActivity extends AppCompatActivity {
         TextView jumlahTextView = (TextView) findViewById(
                 R.id.jumlah_text_view);
         jumlahTextView.setText("" + angka);
-    }
-
-    /**
-     * Method ini menampilkan pesan ke layar android
-     * */
-    private void tampilkanPesan(String pesan) {
-        TextView hargaTextView = (TextView) findViewById(R.id.harga_text_view);
-        hargaTextView.setText(pesan);
-    }
-
-    /**
-     * Method ini menampilkan nilai harga ke layar
-     * */
-    private void tampilkanHarga(int angka){
-        TextView hargaTextView = (TextView) findViewById(R.id.harga_text_view);
-        hargaTextView.setText(NumberFormat.getCurrencyInstance().format(angka));
     }
 }
