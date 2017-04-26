@@ -1,11 +1,41 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Warna utama untuk tema applikasi -->
+        <item name="colorPrimary">#FF9800</item>
+        <!-- Warna untuk tombol -->
+        <item name="colorButtonNormal">#FF9800</item>
+    </style>
+
+    <!-- Style untuk tombol -->
+    <style name="ButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <!-- Style untuk angka skor-->
+    <style name="ScoreStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:text">@string/base_skor</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">50sp</item>
+    </style>
+
+    <!--Style untuk nama tim-->
+    <style name="HeaderStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textColor">#616161</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>
