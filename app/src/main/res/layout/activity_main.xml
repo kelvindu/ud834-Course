@@ -11,13 +11,13 @@
         android:id="@+id/nama_edit_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Masukkan nama..."
+        android:hint="@string/nama_hint"
         android:inputType="textCapWords"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="toppings"
+        android:text="@string/toppings"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
         android:textAllCaps="true" />
@@ -26,7 +26,7 @@
         android:id="@+id/whipped_cream_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Whipped Cream"
+        android:text="@string/whipped_cream"
         android:textSize="16sp"
         android:paddingLeft="24dp"/>
 
@@ -34,14 +34,14 @@
         android:id="@+id/cokelat_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cokelat"
+        android:text="@string/cokelat"
         android:textSize="16sp"
         android:paddingLeft="24dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="quantity"
+        android:text="@string/quantity"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
         android:textAllCaps="true" />
@@ -54,7 +54,7 @@
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:text="+"
+            android:text="@string/increment"
             android:onClick="increment"/>
 
         <TextView
@@ -65,12 +65,12 @@
             android:textColor="@android:color/black"
             android:layout_marginLeft="8dp"
             android:paddingRight="8dp"
-            android:text="0" />
+            android:text="@string/base_qty" />
 
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:text="-"
+            android:text="@string/decrement"
             android:onClick="decrement"/>
 
     </LinearLayout>
@@ -79,7 +79,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order"
+        android:text="@string/order"
         android:onClick="submitOrder"/>
 
 

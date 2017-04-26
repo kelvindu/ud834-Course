@@ -75,10 +75,10 @@ public class MainActivity extends AppCompatActivity {
      * @return pesan
      * */
     private String buatOrderSummary(String nama, int harga) {
-        return "Nama: " + nama +
+        return "Nama: " + getString(R.string.order_summary_name, nama) +
                 "\nJumlah Kopi: " + jumlah +
                 "\nTotal $" + harga +
-                "\nTerima kasih!";
+                getString(R.string.thank_you);
     }
 
     /**
