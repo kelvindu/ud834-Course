@@ -7,11 +7,43 @@
     android:orientation="vertical"
     tools:context="com.kelvindu.learning.ud834_course.MainActivity">
 
+    <EditText
+        android:id="@+id/nama_edit_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan nama..."
+        android:inputType="textCapWords"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="toppings"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:textAllCaps="true" />
+
+    <CheckBox
+        android:id="@+id/whipped_cream_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Whipped Cream"
+        android:textSize="16sp"
+        android:paddingLeft="24dp"/>
+
+    <CheckBox
+        android:id="@+id/cokelat_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cokelat"
+        android:textSize="16sp"
+        android:paddingLeft="24dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="quantity"
         android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:textAllCaps="true" />
 
     <LinearLayout

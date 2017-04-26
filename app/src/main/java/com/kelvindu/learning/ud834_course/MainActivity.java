@@ -3,7 +3,10 @@ package com.kelvindu.learning.ud834_course;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -20,16 +23,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Method ini dipanggil saat tombol plus di click
+     * Method ini dipanggil saat tombol plus diclick.
      * */
     public void increment(View view){
+        if(jumlah == 100)
+            return;
         jumlah = jumlah +1 ;
         tampilkan(jumlah);
     }
 
     /**
+     * Method ini dipanggil saat tombol minus diclick.
      * */
     public void decrement(View view){
+        if(jumlah == 1)
+            return;
         jumlah = jumlah - 1;
         tampilkan(jumlah);
     }
@@ -38,10 +46,60 @@ public class MainActivity extends AppCompatActivity {
      * Method ini dipanggil saat tombol order di click.
      * */
     public void submitOrder(View view){
-        int harga = jumlah * 5;
-        String pesan = "Total seluruhnya $" +harga+"\nTerima kasih!";
-        //tampilkanHarga(jumlah * 5);
+        EditText fieldNama = (EditText) findViewById(R.id.nama_edit_view);
+        String nama = fieldNama.getText().toString();
+
+        //memastikan jika user ingin topping whipped cream
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        boolean pesanWhippedCream = whippedCreamCheckBox.isChecked();
+
+        //memastikan jika user ingin topping cokelat
+        CheckBox cokelatCheckBox = (CheckBox) findViewById(R.id.cokelat_checkbox);
+        boolean pesanCokelat = cokelatCheckBox.isChecked();
+
+        
+
+        int harga = hitungHarga(pesanWhippedCream,pesanCokelat);
+
+        String pesan = buatOrderSummary(nama,harga);
+
         tampilkanPesan(pesan);
+    }
+
+    /**
+     * Method ini membuat summary dari pesanan pelanggan.
+     *
+     * @param nama adalah nama dari pelanggan.
+     * @param harga adalah harga dari pesanan kopi.
+     * @return pesan
+     * */
+    private String buatOrderSummary(String nama, int harga) {
+        return "Nama: " + nama +
+                "\nJumlah Kopi: " + jumlah +
+                "\nTotal $" + harga +
+                "\nTerima kasih!";
+    }
+
+
+    /**
+     * Method ini dipanggil untuk menghitung harga kopi.
+     *
+     * @param tambahWhippedCream adalah jika pelanggan ingin menambah topping whipped cream
+     * @param tambahCokelat adalah jika pelanggan ingin menambah topping cokelat
+     * @return harga kopi setelah dihitung.
+     * */
+    private int hitungHarga(boolean tambahWhippedCream, boolean tambahCokelat){
+        //Harga secangkir kopi
+        int hargaDasar = 5;
+
+        //Tambah 1 jika pelanggan ingin whipped cream
+        if(tambahWhippedCream)
+            hargaDasar += 1;
+        //Tambah 2 jika pelanggan ingin cokelat
+        if(tambahCokelat)
+            hargaDasar +=2 ;
+
+        return jumlah*hargaDasar;
     }
 
     /**
