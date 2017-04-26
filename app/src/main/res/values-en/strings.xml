@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">ud834-Course</string>
+    <string name="cokelat">Chocolate</string>
+    <string name="decrement_max">You must have at least 1 coffee</string>
+    <string name="order_summary_subject">Just Java order for</string>
+
+    <string name="order_summary_name">Name: <xliff:g id="nama" example="Amy">%s</xliff:g></string>
+    <string name="order_summary_whipped_cream">Has whipped cream: <xliff:g id="tambahWhippedCream">%b</xliff:g></string>
+    <string name="order_summary_cokelat">Has chocolate: <xliff:g id="tambahCokelat">%b</xliff:g></string>
+    <string name="order_summary_quantity">Quantity: <xliff:g id="jumlah">%d</xliff:g></string>
+    <string name="order_summary_price">Total: <xliff:g id="harga">%s</xliff:g></string>
+    <string name="thank_you">Thank you!</string>
+    <string name="increment_max">You cannot have more than 100 coffee</string>
+    <string name="nama_hint">Enter your name…</string>
+
+</resources>
